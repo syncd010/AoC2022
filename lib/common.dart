@@ -173,14 +173,14 @@ T? aStarSearch<T>(T start, List<T> Function(T) successors,
   if (isGoal(start)) return start;
 
   var frontier = PriorityQueue<T>(comparison)..add(start);
-  var explored = {start.hashCode};
+  var explored = {start};
 
   while (frontier.isNotEmpty) {
     var current = frontier.removeFirst();
     if (isGoal(current)) return current;
     for (var next in successors(current)) {
-      if (explored.contains(next.hashCode)) continue;
-      explored.add(next.hashCode);
+      if (explored.contains(next)) continue;
+      explored.add(next);
       frontier.add(next);
     }
   }

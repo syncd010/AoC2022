@@ -62,6 +62,16 @@ class State {
 
   @override
   int get hashCode => Object.hash(time, position.x, position.y);
+
+  @override
+  bool operator ==(Object other) {
+    return (other is State) &&
+        (other.position == position) &&
+        (other.time == time);
+  }
+
+  @override
+  String toString() => 'Time: $time, Pos: ${position.x}, ${position.y}]';
 }
 
 // Movs, Stay put, E,W,N,S
